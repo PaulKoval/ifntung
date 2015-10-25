@@ -273,42 +273,6 @@ public List<Customer> findCustomers(int limit, int offset){
 	}
 }
 
-public Map<Integer, HashMap<String,String>> SQLquery(String sqlQuery){
-	
-	Map<Integer,HashMap<String,String>> ResultMap = new HashMap<Integer, HashMap<String,String>>();
-	
-	Connection conn = null;
-	
-	PreparedStatement ps;
-	try {
-		Vector<String> columnNames = new Vector<String>();
-		conn = dataSource.getConnection();
-		ps = conn.prepareStatement(sqlQuery);
-		ResultSet rs = ps.executeQuery();
-		ResultSetMetaData columns = (ResultSetMetaData) rs.getMetaData();
-        int i = 0;
-        while (i < columns.getColumnCount()) {
-          i++;
-          columnNames.add(columns.getColumnName(i));
-        }
-        Integer j = 0;
-        while (rs.next()) {
-        	HashMap<String,String> Entry = new HashMap<String,String>();
-          for (i = 0; i < columnNames.size(); i++) {
-            Entry.put(columns.getColumnName(i+1), rs.getString(columnNames.get(i)));
-          }
-          
-          ResultMap.put(j, Entry);
-          //Map<String, String> map = ResultMap.get(j);
-          j++;
-        }
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-	
-	return ResultMap;
-	
-}
 
 public List<Customer> searchCustomers(String sql){
 	
