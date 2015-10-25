@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="customerDAO" class="net.codejava.springmvc.dao.JdbcCustomerDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="userDAO" class="net.codejava.springmvc.dao.JdbcUserDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="companyDAO" class="net.codejava.springmvc.dao.JdbcCompanyDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="industryDAO" class="net.codejava.springmvc.dao.JdbcIndustryDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+</beans>

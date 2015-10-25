@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url(../img/backgrouns.jpg);
+}
+
+.loader {
+	width: 264px;
+	background: #ffffff url(../img/preloader_qr_codes.gif) 14px 14px no-repeat;
+	padding: 22px;
+	 margin: auto;
+	border: 1px solid #c0c0c0;
+}
